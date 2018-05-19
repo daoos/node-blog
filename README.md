@@ -1,6 +1,6 @@
 # node-blog
 
-> A Vue.js project
+> node+express+mongodb+vue2.x+muse-ui实现移动端web博客demo
 
 ## Build Setup
 
