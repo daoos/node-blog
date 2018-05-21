@@ -49,6 +49,9 @@ export default {
       .mu-text-field-input {
         background: #fff;
       }
+      button {
+        font-size: 0.4rem;
+      }
     }
   }
 </style>
