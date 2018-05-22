@@ -1,6 +1,6 @@
 <template>
-  <div class="reading">
-    Reading
+  <div class="about">
+    <span>blog demo base on node+express+mongodb+vue2.x+muse-ui+rem+less</span>
   </div>
 </template>
 
@@ -10,9 +10,9 @@ export default {}
 
 <style lang="less" scoped>
 @import url('../../assets/style/variable.less');
-  .reading {
+  .about {
+    // all - header - footer == 13.34 - 1 - 1.12 == 11.22
     min-height: @main-content-min-height;
-    font-family: @font-family;
     font-size: @font-size;
   }
 </style>

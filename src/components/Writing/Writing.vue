@@ -8,6 +8,11 @@
 export default {}
 </script>
 
-<style scoped>
-
+<style lang="less" scoped>
+@import url('../../assets/style/variable.less');
+  .writing {
+    min-height: @main-content-min-height;
+    font-family: @font-family;
+    font-size: @font-size;
+  }
 </style>
