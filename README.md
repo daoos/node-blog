@@ -1,6 +1,7 @@
 # node-blog
 
-> node+express+mongodb+vue2.x+muse-ui实现移动端web博客demo
+> 一个比较小的移动端web博客demo，虽然功能简单，但涉及到的知识点还是比较多的：
+> 如：node、express、mongodb、vue2.x、vue-router、muse-ui、rem布局、移动web等等。
 
 ## Build Setup
 
