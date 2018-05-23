@@ -41,13 +41,12 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="less" scoped>
-.register {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  .register {
+    width: 100%;
+    height: 100%;
+  }
   .content {
+    padding-top: 2.5rem;
     text-align: center;
     .mu-text-field-input {
       background: #fff;
@@ -56,5 +55,4 @@ export default {
       font-size: 0.4rem;
     }
   }
-}
 </style>
