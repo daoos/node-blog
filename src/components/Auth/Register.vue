@@ -9,7 +9,7 @@
       </div>
       <mu-raised-button label="注册" class="demo-raised-button" primary @click="doRegister"/><br>
       <mu-flat-button label="返回登录" class="demo-flat-button" primary @click="toLogin"/>
-      <span v-if="errMsg" style="color:red;">{{errMsg}}</span>
+      <span v-if="errMsg" class="error">{{errMsg}}</span>
     </div>
     <mu-dialog :open="dialog" title="结果提示" @close="close">
       {{message}}
@@ -65,6 +65,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="less" scoped>
+@import url('../../assets/style/variable.less');
   .register {
     width: 100%;
     height: 100%;
@@ -74,6 +75,10 @@ export default {
     text-align: center;
     .mu-text-field-input {
       background: #fff;
+    }
+    .error {
+      font-size: @font-size;
+      color: red;
     }
     button {
       font-size: 0.4rem;

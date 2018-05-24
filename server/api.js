@@ -3,31 +3,36 @@ const express = require('express');
 const router = express.Router();
 
 // 注册接口
-router.post('/api/login/createAccount',(req,res) => {
-    let user = new models.Login({
-        username : req.body.username,
-        password : req.body.password
-    });
-    // 保存数据newAccount数据进mongoDB
-    user.save((err,data) => {
-        if (err) {
-            res.send(err);
-        } else {
-            res.send('注册成功');
-        }
-    });
+router.post('/api/register',(req,res) => {
+  let account = new models.Account({
+    username : req.body.username,
+    password : req.body.password
+  });
+  // 保存账号数据进mongoDB
+  account.save((err,data) => {
+    if (err) {
+      res.send(err);
+    } else {
+      res.send('注册成功');
+    }
+  });
 });
 
-// 获取已有账号接口
-router.get('/api/login/getAccount',(req,res) => {
-    // 通过模型去查找数据库
-    models.Login.find((err,data) => {
-        if (err) {
-            res.send(err);
-        } else {
-            res.send(data);
-        }
-    });
+// 登录接口
+router.post('/api/login', (req,res) => {
+  let account = {
+    username: req.body.username,
+    password: req.body.password
+  }
+  console.log(account)
+  // 通过模型去查找数据库
+  models.Account.findOne(account, (err, data) => {
+    if (!data) {
+      res.send({result: 0})
+    } else {
+      res.send(Object.assign({}, {result: 1}, account))
+    }
+  });
 });
 
 module.exports = router;

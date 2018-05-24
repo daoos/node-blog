@@ -16,7 +16,12 @@ var instance = axios.create({
 
 // 用户注册
 blogApi.register = function (params) {
-  return instance.post('/login/createAccount', params)
+  return instance.post('/register', params)
+}
+
+// 用户登录
+blogApi.login = function (params) {
+  return instance.post('/login', params)
 }
 
 export default blogApi

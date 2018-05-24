@@ -7,15 +7,15 @@ const db = mongoose.connection;
 db.once('error',() => console.log('Mongo connection error'));
 db.once('open',() => console.log('Mongo connection successed'));
 
-// 定义模式loginSchema
-const loginSchema = mongoose.Schema({
-    username : String,
-    password : String
+// 定义模式accountSchema
+const accountSchema = mongoose.Schema({
+  username: String,
+  password: String
 });
 
 // 定义模型Models
 const Models = {
-    Login : mongoose.model('Login',loginSchema)
+  Account: mongoose.model('Account', accountSchema)
 }
 
 module.exports = Models;
