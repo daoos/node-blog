@@ -34,6 +34,7 @@ export default {
         if (res.data.result === 0) {
           this.errMsg = '信息错误，登录失败'
         } else {
+          localStorage.setItem('username', res.data.username)
           this.$router.push('/home')
         }
       }).catch((err) => {

@@ -1,22 +1,39 @@
 <template>
   <div class="header">
-    NodeBlog
+    <mu-appbar title="NodeBlog">
+      <mu-icon-button icon="menu" slot="left"/>
+      <mu-flat-button :label="username" slot="right"/>
+      <mu-flat-button :label="out" @click="logout" slot="right"/>
+    </mu-appbar>
   </div>
 </template>
 
 <script>
-export default {}
+export default {
+  data () {
+    return {
+      username: 'ddd',
+      out: ''
+    }
+  },
+  created () {
+    this.getUser()
+  },
+  methods: {
+    getUser () {
+      this.username = localStorage.getItem('username')
+      if (this.username) {
+        this.out = '注销'
+      }
+    },
+    logout () {
+      localStorage.clear()
+      this.out = ''
+      this.$router.push('/login')
+    }
+  }
+}
 </script>
 
 <style lang="less" scoped>
-@import url('../../assets/style/variable.less');
-  .header {
-    width: 100%;
-    height: 48px;
-    line-height: 48px;
-    font-size: 0.4rem;
-    text-align: center;
-    color: #fff;
-    background: #7e57c2;
-  }
 </style>
