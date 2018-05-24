@@ -2,16 +2,27 @@
 
 > 一个比较小的移动端web博客demo，虽然功能简单，但涉及到的知识点还是比较多的：
 > 如：node、express、mongodb、vue2.x、vue-router、muse-ui、rem布局、移动web等等。
+> 需先按照mongodb、node环境
 
 ## Build Setup
 
 ``` bash
+# 启动mongodb,mac的方法为：
+输入sudo mongod指令，输入密码后回车
+
+# 启动server端，成功后运行的端口为8888,方法为：
+cd server
+node index.js
+
+然后按照vue项目常规步骤：
+
 # install dependencies
 npm install
 
 # serve with hot reload at localhost:8080
 npm run dev
 
+# 以下为build，build后可打开localhost:8888浏览
 # build for production with minification
 npm run build
 
