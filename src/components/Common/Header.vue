@@ -1,6 +1,6 @@
 <template>
   <div class="header">
-    blog-demo
+    NodeBlog
   </div>
 </template>
 

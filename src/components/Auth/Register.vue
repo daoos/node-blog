@@ -9,28 +9,52 @@
       </div>
       <mu-raised-button label="注册" class="demo-raised-button" primary @click="doRegister"/><br>
       <mu-flat-button label="返回登录" class="demo-flat-button" primary @click="toLogin"/>
+      <span v-if="errMsg" style="color:red;">{{errMsg}}</span>
     </div>
+    <mu-dialog :open="dialog" title="结果提示" @close="close">
+      {{message}}
+      <mu-flat-button slot="actions" @click="close" primary label="取消"/>
+      <mu-flat-button slot="actions" primary @click="close" label="确定"/>
+    </mu-dialog>
   </div>
 </template>
 
 <script>
 import VHeader from '@/components/Common/Header'
+import blogApi from '@/api/blog-api.js'
 export default {
   data () {
     return {
       username: '',
       password: '',
-      confirmPass: ''
+      confirmPass: '',
+      dialog: false,
+      message: '',
+      errMsg: ''
     }
   },
   methods: {
     doRegister () {
-      console.log(this.username)
-      console.log(this.password)
-      console.log(this.confirmPass)
+      const params = {
+        username: this.username,
+        password: this.password
+      }
+      blogApi.register(params).then((res) => {
+        if (res.status === 200) {
+          this.message = '注册成功'
+          this.dialog = true
+        }
+      }).catch((err) => {
+        this.errMsg = '注册失败'
+        console.log(err)
+      })
     },
     toLogin () {
       this.$router.push('/Login')
+    },
+    close () {
+      this.dialog = false
+      this.toLogin()
     }
   },
   components: {
