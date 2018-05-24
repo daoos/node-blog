@@ -19,10 +19,10 @@ node index.js
 # 新建命令行窗口，安装依赖
 npm install
 
-# 开发环境运行
+# 开发环境运行，随后可打开http://localhost:8080浏览
 npm run dev
 
-# 生产环境，build后可打开localhost:8888浏览
+# 生产环境，build后可打开http://localhost:8888浏览
 npm run build
 
 # build for production and view the bundle analyzer report
