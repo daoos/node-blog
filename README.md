@@ -7,23 +7,22 @@
 ## Build Setup
 
 ``` bash
-# 启动mongodb,mac的方法为：
+# 打开命令行窗口，启动mongodb,mac的方法为：
 输入sudo mongod指令，输入密码后回车
 
-# 启动server端，成功后运行的端口为8888,方法为：
+# 新建命令行窗口，启动server端，成功后运行的端口为8888,方法为：
 cd server
 node index.js
 
 然后按照vue项目常规步骤：
 
-# install dependencies
+# 新建命令行窗口，按照依赖
 npm install
 
-# serve with hot reload at localhost:8080
+# 开发环境运行
 npm run dev
 
-# 以下为build，build后可打开localhost:8888浏览
-# build for production with minification
+# 生产环境，build后可打开localhost:8888浏览
 npm run build
 
 # build for production and view the bundle analyzer report
