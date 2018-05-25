@@ -90,6 +90,11 @@ export default {
           color: #7e57c2;
           font-weight: normal;
         }
+        .error {
+          color: red;
+          font-size: @font-size;
+          margin-bottom: 0.2rem;
+        }
       }
     }
   }

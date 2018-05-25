@@ -1,6 +1,6 @@
 <template>
   <div class="reading" :style="{minHeight: minHeight + 'px'}">
-      <div class="blog" v-for="(item, index) in blogs" :key="index">
+      <div class="blog" v-for="(item, index) in blogs" :key="index" @click="getDetail(item._id)">
         <div class="avatar">
           <img src="../../assets/images/avatar.png" alt="我只是静态图片，可以考虑自己扩展功能噢">
         </div>
@@ -9,6 +9,12 @@
           <p class="content">{{item.content}}</p>
         </div>
       </div>
+      <mu-dialog :open="dialog" title="博客详情" @close="close">
+        <div>标题：{{currTitle}}</div>
+        <div>内容：{{currContent}}</div>
+        <mu-flat-button slot="actions" @click="close" primary label="取消"/>
+        <mu-flat-button slot="actions" primary @click="close" label="确定"/>
+      </mu-dialog>
   </div>
 </template>
 
@@ -19,6 +25,9 @@ export default {
   data () {
     return {
       minHeight: 0,
+      dialog: false,
+      currTitle: '',
+      currContent: '',
       blogs: [
         {
           _id: 'id1',
@@ -38,6 +47,19 @@ export default {
     this.getBlogs()
   },
   methods: {
+    getDetail (id) {
+      for (let i = 0; i < this.blogs.length; i++) {
+        if (this.blogs[i]._id === id) {
+          this.currTitle = this.blogs[i].title
+          this.currContent = this.blogs[i].content
+          this.dialog = true
+          return
+        }
+      }
+    },
+    close () {
+      this.dialog = false
+    },
     getBlogs () {
       blogApi.getBlogs().then((res) => {
         if (res.status === 200) {
