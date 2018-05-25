@@ -26,6 +26,10 @@ export default {
   },
   methods: {
     doLogin () {
+      if (!this.username || !this.password) {
+        this.errMsg = '请填写完整信息再尝试！'
+        return
+      }
       const params = {
         username: this.username,
         password: this.password
