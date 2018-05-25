@@ -1,6 +1,6 @@
 <template>
   <div class="about" :style="{minHeight: minHeight + 'px'}">
-    <span>blog demo base on node+express+mongodb+vue2.x+muse-ui+rem+less</span>
+    <span>占位置专用~</span>
   </div>
 </template>
 
@@ -22,5 +22,11 @@ export default {
 @import url('../../assets/style/variable.less');
   .about {
     font-size: @font-size;
+    span {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
   }
 </style>
