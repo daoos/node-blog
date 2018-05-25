@@ -7,6 +7,8 @@
 ## Build Setup
 
 ``` bash
+
+首先需要安装好node环境、mongodb数据库，安装好后继续以下步骤：
 # 打开命令行窗口，启动mongodb,mac的方法为：
 输入sudo mongod指令，输入密码后回车
 
