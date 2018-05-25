@@ -35,6 +35,10 @@ export default {
   },
   methods: {
     doRegister () {
+      if (!this.username || !this.confirmPass || !this.password || this.confirmPass !== this.password) {
+        this.errMsg = '信息不准确，请重新填写！'
+        return
+      }
       const params = {
         username: this.username,
         password: this.password
