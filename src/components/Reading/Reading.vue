@@ -14,24 +14,39 @@
 
 <script>
 import setMinHeight from '@/common/js/util.js'
+import blogApi from '@/api/blog-api.js'
 export default {
   data () {
     return {
       minHeight: 0,
       blogs: [
         {
+          _id: 'id1',
           title: '原始博客标题1，请先发博客~',
           content: '哈哈哈哈哈，我是原始博客内容，请先发博客啊啊啊'
         },
         {
+          _id: 'id2',
           title: '原始博客标题2，请先发博客~',
           content: '哈哈哈哈哈，我是原始博客内容，请先发博客啊啊啊'
         }
       ]
     }
   },
-  mounted () {
+  created () {
     setMinHeight(this, 104)
+    this.getBlogs()
+  },
+  methods: {
+    getBlogs () {
+      blogApi.getBlogs().then((res) => {
+        if (res.status === 200) {
+          this.blogs = res.data
+        }
+      }).catch((err) => {
+        console.log(err)
+      })
+    }
   }
 }
 </script>
@@ -69,6 +84,6 @@ export default {
           color: #303133;
         }
       }
-    } 
+    }
   }
 </style>

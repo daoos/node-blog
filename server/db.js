@@ -13,9 +13,18 @@ const accountSchema = mongoose.Schema({
   password: String
 });
 
+// 定义模式blogSchema
+
+const blogShema = mongoose.Schema({
+  title: String, 
+  content: String
+})
+
 // 定义模型Models
 const Models = {
-  Account: mongoose.model('Account', accountSchema)
+  Account: mongoose.model('Account', accountSchema),
+  Blog: mongoose.model('Blog', blogShema)
 }
+
 
 module.exports = Models;

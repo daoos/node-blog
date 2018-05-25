@@ -24,4 +24,13 @@ blogApi.login = function (params) {
   return instance.post('/login', params)
 }
 
+// 发表博客
+blogApi.setBlog = function (params) {
+  return instance.post('/setBlog', params)
+}
+
+blogApi.getBlogs = function () {
+  return instance.post('/getBlogs')
+}
+
 export default blogApi
